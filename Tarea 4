@@ -1,0 +1,61 @@
+#ejercicio 1 
+diccionario = {'a': 3, 'b': 1, 'c': 2}
+diccionario2 = {'a': 3, 'b': 1, 'c': 2}
+diccionario3 = {'b': 4, 'c': 3, 'd': 6}
+lista_personas = [
+    {"nombres": "Pedro Julio", "apellidos": "Tristán Merchán", "edad": 10},
+    {"nombres": "Ana María", "apellidos": "Gómez Pérez", "edad": 30},
+    {"nombres": "Juan Carlos", "apellidos": "Rodríguez López", "edad": 45},
+    {"nombres": "Laura Sofía", "apellidos": "Martínez Torres", "edad": 60}
+]
+
+
+#ejercicio 1 
+def valores_ascendentes(diccionario):
+    
+    valores = list(diccionario.values())    
+    valores.sort()  
+    for valor in valores:
+        print(valor)
+
+# Ejemplo de uso
+
+valores_ascendentes(diccionario)
+
+
+#ejericio 2
+def contiene_diccionario(grande, pequeño):
+    # Recorre todas las claves y valores del diccionario pequeño
+    for clave, valor in pequeño.items():
+        # Verifica si la clave existe en el diccionario grande y si su valor es el mismo
+        if clave not in grande or grande[clave] != valor:
+            print('son diferentes')
+        else:
+            print('no son diferentes')
+
+contiene_diccionario(diccionario, diccionario2)
+
+
+#ejercicio 3
+def mezclar_diccionarios(dic1, dic2):
+    # Comenzamos copiando el primer diccionario para no modificarlo
+    diccionario_mezclado = dic1.copy()
+    
+    # Añadimos al diccionario mezclado los elementos del segundo diccionario
+    for clave, valor in dic2.items():
+        # Si la clave no está en el primer diccionario, la añadimos
+        if clave not in diccionario_mezclado:
+            diccionario_mezclado[clave] = valor
+            print(diccionario_mezclado)
+mezclar_diccionarios(diccionario,diccionario3)
+
+
+#ejericio 4
+def filtrar_por_edad(lista_personas, edad_minima, edad_maxima):
+    # Iterar sobre la lista de personas y filtrar según el rango de edades
+    for persona in lista_personas:
+        if edad_minima <= persona["edad"] <= edad_maxima:
+            # Imprimir nombres y apellidos si la persona está en el rango de edades
+            print(f'{persona["nombres"]} {persona["apellidos"]}')
+
+filtrar_por_edad(lista_personas, 10,30)
